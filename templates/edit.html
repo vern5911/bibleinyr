@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} Edit for Day#: {{ reads.bid }},  {{ reads.Date }} {% endblock %}</h1>
+    <form method="post">
+        <!--div class="form-group">
+            label for="bid" name="bid" readonly>{{ request.form['rowid'] or reads['rowid'] }}</label>
+            label for="date" name="date" readonly>{{ request.form['Date'] or reads['Date'] }}</label>          
+        </div-->
+        <br/>
+        <div class="form-group">
+            <label for="feedback1" name="Reading1">{{ reads['Reading1'] }}</label>
+            <br>
+            <textarea autofocus name="feedback1" placeholder="Reading1 feedback..." 
+                rows="2" cols="60" style="text-align:left" required
+                value="{{ request.form['Reading1_Feedback'] or reads['Reading1_Feedback'] }}">
+            </textarea>
+        </div><br/>
+        <div class="form-group">
+            <label for="feedback2" name="Reading2" readonly>{{ reads['Reading2'] }}</label>
+            <br>
+            <textarea name="feedback2" placeholder="Reading2 feedback..." 
+                rows="2" cols="60" style="text-align:left" required 
+                value="{{ request.form['Reading2_Feedback'] or reads['Reading2_Feedback']}}">
+            </textarea>
+        </div><br/>
+        <div class="form-group">
+            <label for="feedback3" name="Reading3" readonly>{{ request.form['Reading3'] or reads['Reading3'] }}</label>
+            <br>
+            <textarea name="feedback3" placeholder="Reading3 feedback..." 
+                rows="2" cols="60" style="text-align:left" required 
+                value="{{ request.form['Reading3_Feedback'] or reads['Reading3_Feedback']}}">
+            </textarea>
+        </div><br/>
+        <div class="submit">
+            <pre>                       <button type="submit">Submit</button></pre>
+        </div>
+    </form>
+{% endblock %}

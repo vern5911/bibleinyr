@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} Readings for Day: {{ reads.bid }}, {{ reads.Date }} {% endblock %}</h2>
+    <form class='/edit'}>
+        <div class='post'>
+            <!--pre><strong>DAY: {{ reads.bid }}     DATE: {{ reads.Date }}</strong></pre-->
+            <br/>
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    <pre><strong><label for="feedback1">{{ reads.Reading1 }}</label></strong></pre>
+                    <h5 class="card-body">
+                    </h5>
+                        <pre><textarea id="feedback1" placeholder="Reading1 feedback..." 
+                            rows="2" cols="40" style="align-content:left overflow:auto; border:6px outset #000000;">{{ reads['Reading1_Feedback'] }}</textarea></pre>
+                    </h5>        
+                </div>
+            </div>
+            <br/>
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    <pre><strong><label for="feedback2">{{ reads.Reading2 }}</label></strong></pre>
+                    <h5 class="card-body">
+                    </h5>
+                        <pre><textarea id="feedback2" placeholder="Reading2 feedback..."  
+                        rows="2" cols="40" style="align-content:left overflow:auto; border:6px 
+                        outset #000000;">{{ reads['Reading2_Feedback'] }}</textarea></pre>
+                    </h5>        
+                </div>
+            </div>
+            <br/>
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    <pre><strong><label for="feedback3">{{ reads.Reading3 }}</label></strong></pre>
+                    <h5 class="card-body">
+                    </h5>
+                        <pre><textarea id="feedback3" placeholder="Reading3 feedback..."  
+                        rows="2" cols="40" style="align-content:left overflow:auto; border:6px 
+                        outset #000000;">{{ reads['Reading3_Feedback']}}</textarea></pre>
+                    </h5>        
+                </div>
+            </div>
+                <a href="{{ url_for('edit', Id=reads['bid']) }}">Edit</a>
+        </div>
+    </form>
+{% endblock %}
