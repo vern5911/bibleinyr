@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{% block title %} Readings for: {{ month }} {% endblock %}</h2>
+  <form class='report'>
+    <div class='post'>
+        <br/>
+        <table>
+          <tr>
+            <pre><th>DAY</th></pre>
+            <pre><th>DATE</th></pre>
+            <pre><th>Feedback1</th></pre>
+            <pre><th>Feedback2</th></pre>
+            <pre><th>Feedback3</th></pre>
+          </tr><br>
+          {% for read in reads %}    
+          <tr>
+            <pre><td>{{ read['bid'] }}</td></pre>
+            <pre><td>{{ read['Date'] }}</td></pre>
+            <pre><td>{{ read['Reading1_Feedback'] }}</td></pre>
+            <pre><td>{{ read['Reading2_Feedback'] }}</td></pre>
+            <pre><td>{{ read['Reading3_Feedback'] }}</td></pre>
+          </tr>
+        {% endfor %}
+    </div>
+  </form>
+{% endblock %}
